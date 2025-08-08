@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react";
-import { data, useParams } from "react-router";
+import { useParams } from "react-router";
 import useAuthUser from "../hooks/useAuthUser.js";
 import { useQuery } from "@tanstack/react-query";
 import { getStreamToken } from "../lib/api.js";
@@ -39,7 +39,7 @@ const ChatPage = () => {
 
   useEffect(() => {
     const initChat = async () => {
-      if (!tokenData?.token || !authUser || !targetUserId) return;
+      if (!tokenData?.token || !authUser ) return;
 
       try {
         console.log("Initializing stream chat client...");

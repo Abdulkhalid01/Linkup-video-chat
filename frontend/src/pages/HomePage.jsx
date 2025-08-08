@@ -37,11 +37,12 @@ const HomePage = () => {
 
   const { mutate: sendRequestMutation, isPending } = useMutation({
     mutationFn: sendFriendRequest,
-    onSuccess: (_, userId) => {
-      setOutgoingRequestsIds((prev) => new Set(prev).add(userId));
+    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] })
+    // onSuccess: (_, userId) => {
+    //   setOutgoingRequestsIds((prev) => new Set(prev).add(userId));
 
-      queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] });
-    },
+    //   queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] });
+    // },
   });
 
   useEffect(() => {

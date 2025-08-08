@@ -85,7 +85,6 @@ export async function sendFriendRequest(req, res) {
   }
 }
 
-
 export async function acceptFriendRequest(req, res) {
   try {
     const { id: requestId } = req.params;

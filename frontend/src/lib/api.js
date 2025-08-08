@@ -9,7 +9,7 @@ export const login = async (loginData) => {
   return response.data;
 };
 export const logout = async () => {
-  const response = await axiosinstance.post("/auth/logout", logout);
+  const response = await axiosinstance.post("/auth/logout");
   return response.data;
 };
 
