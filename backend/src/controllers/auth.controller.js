@@ -27,14 +27,14 @@ export async function signup(req, res) {
         .json({ message: "Email already exists, please use a diffrent one" });
     }
 
-    const idx = Math.floor(Math.random() * 100) + 1; // generate a num between 1-100
-    const rnadomAvator = `https://api.multiavatar.com/${idx}.png`;
+    const idx = Math.floor(Math.random() * 1000) + 1; // generate a num between 1-100
+    const randomAvatar = `https://api.multiavatar.com/${idx}.png`;
 
     const newUser = await User.create({
       email,
       fullName,
       password,
-      profilePic: rnadomAvator,
+      profilePic: randomAvatar,
     });
 
     try {

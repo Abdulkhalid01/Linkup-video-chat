@@ -43,7 +43,7 @@ const OnboardingPage = () => {
   };
 
   const handleRandomAvatar = () => {
-    const idx = Math.floor(Math.random() * 100) + 1; // 1-100 included
+    const idx = Math.floor(Math.random() * 1000) + 1; // 1-100 included
     const randomAvatar = `https://api.multiavatar.com/${idx}.png`;
 
     setFormState({ ...formState, profilePic: randomAvatar });
