@@ -134,8 +134,12 @@ export async function onboard(req, res) {
       });
     }
 
+     if (profilePic) {
+      updateData.profilePic = profilePic;
+    }
+
     const updateUser = await User.findByIdAndUpdate(
-      userId,
+      userId, updateData,
       {
         ...req.body,
         isOnboarded: true,
