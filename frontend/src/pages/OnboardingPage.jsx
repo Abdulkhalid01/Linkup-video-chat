@@ -3,6 +3,7 @@ import useAuthUser from "../hooks/useAuthUser.js";
 import { useMutation, useQueryClient } from "@tanstack/react-query";
 import { completeOnboarding } from "../lib/api.js";
 import {
+  CameraIcon,
   LoaderIcon,
   MapPinIcon,
   ShipWheelIcon,
@@ -46,10 +47,10 @@ const OnboardingPage = () => {
     const idx = Math.floor(Math.random() * 1000) + 1; // 1-100 included
     const randomAvatar = `https://api.multiavatar.com/${idx}.png`;
 
-    setFormState({ ...formState, profilePic: randomAvatar });
+    setFormState({ ...formState, profilePic:randomAvatar });
     toast.success("Random profile picture generated!");
   };
-
+  
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
       <div className="card bg-base-200 w-full max-w-3xl shadow-xl">
