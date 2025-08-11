@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router";
-import useAuthUser from "../hooks/useAuthUser";
+import useAuthUser from "../hooks/useAuthUser.js";
 import { useQuery } from "@tanstack/react-query";
-import { getStreamToken } from "../lib/api";
+import { getStreamToken } from "../lib/api.js";
 
 import {
   CallingState,
@@ -16,7 +16,7 @@ import {
 } from "@stream-io/video-react-sdk";
 
 import "@stream-io/video-react-sdk/dist/css/styles.css";
-import PageLoader from "../components/PageLoader";
+import PageLoader from "../components/PageLoader.jsx";
 import toast from "react-hot-toast";
 
 const STREAM_API_KEY = import.meta.env.VITE_STREAM_API_KEY;
@@ -75,7 +75,7 @@ const CallPage = () => {
   if (isLoading || isConnecting) return <PageLoader />;
 
   return (
-      <div className="h-screen flex flex-col items-center justify-center">
+    <div className="h-screen flex flex-col items-center justify-center">
       <div className="relative">
         {client && call ? (
           <StreamVideo client={client}>
@@ -90,7 +90,7 @@ const CallPage = () => {
         )}
       </div>
     </div>
-  )
+  );
 };
 
 const CallContent = () => {

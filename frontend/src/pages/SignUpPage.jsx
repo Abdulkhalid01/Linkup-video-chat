@@ -22,7 +22,7 @@ const SignUpPage = () => {
   //   onSuccess: () => queryClient.invalidateQueries({ queryKey: ["authUser"] }),
   // });
 
-  const {isPending, error, signupMutation} = useSignUp()
+  const {isPending, error, signupMutation} = useSignUp();
 
   const handleSignup = (e) => {
     e.preventDefault();
@@ -63,7 +63,7 @@ const SignUpPage = () => {
                   </p>
                 </div>
 
-                <div className="">
+                <div className="space-y-3">
                   {/* FULLNAME */}
                   <div className="form-control w-full">
                     <label className="label">
@@ -99,6 +99,7 @@ const SignUpPage = () => {
                       required
                     />
                   </div>
+
                   {/* PASSWORD */}
                   <div className="form-control w-full">
                     <label className="label">
@@ -146,8 +147,8 @@ const SignUpPage = () => {
                 <button className="btn btn-primary w-full" type="submit">
                   {isPending ? (
                     <>
-                      <span className="loading loading-spinner loading-xs"></span>
-                      Loading...
+                      <span className="loading loading-spinner loading-xs">Loading...</span>
+                      
                     </>
                   ) : (
                     "Create Account"
@@ -171,7 +172,7 @@ const SignUpPage = () => {
         <div className="hidden lg:flex w-full lg:w-1/2 bg-primary/10 items-center justify-center">
           <div className="max-w-md p-8">
             {/* Illustration */}
-            <div>
+            <div className="relative aspect-square max-w-sm mx-auto">
               <img
                 src="/i.png"
                 alt="Language connection illustration"

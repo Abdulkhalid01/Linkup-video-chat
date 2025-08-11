@@ -47,10 +47,10 @@ const OnboardingPage = () => {
     const idx = Math.floor(Math.random() * 100) + 1; // 1-100 included
     const randomAvatar = `https://avatar.iran.liara.run/public/${idx}.png`;
 
-    setFormState({ ...formState, profilePic:randomAvatar });
+    setFormState({ ...formState, profilePic: randomAvatar });
     toast.success("Random profile picture generated!");
   };
-  
+
   return (
     <div className="min-h-screen bg-base-100 flex items-center justify-center p-4">
       <div className="card bg-base-200 w-full max-w-3xl shadow-xl">
@@ -75,6 +75,7 @@ const OnboardingPage = () => {
                   </div>
                 )}
               </div>
+
               {/* gentate random avatar btn */}
               <div className="flex items-center gap-2">
                 <button
@@ -87,6 +88,7 @@ const OnboardingPage = () => {
                 </button>
               </div>
             </div>
+
             {/* full name */}
             <div className="form-control">
               <label className="label">
@@ -103,6 +105,7 @@ const OnboardingPage = () => {
                 placeholder="Your full name"
               />
             </div>
+
             {/* bio */}
             <div className="form-control">
               <label className="label">
@@ -190,7 +193,9 @@ const OnboardingPage = () => {
                 />
               </div>
             </div>
+
             {/* submit btn */}
+            
             <button
               className="btn btn-primary w-full"
               disabled={isPending}

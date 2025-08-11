@@ -34,7 +34,7 @@ const ChatPage = () => {
   const { data: tokenData } = useQuery({
     queryKey: ["streamToken"],
     queryFn: getStreamToken,
-    enabled: !!authUser, // this will run only when authUser is available
+    enabled: !!authUser?._id, // this will run only when authUser is available
   });
 
   useEffect(() => {
@@ -73,7 +73,7 @@ const ChatPage = () => {
         console.error("Error initializing chat:", error);
         toast.error("Could not connect to chat. Please try again.");
       } finally {
-        setLoading(false);
+        setLoading(false); 
       }
     };
 

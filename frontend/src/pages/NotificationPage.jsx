@@ -1,5 +1,5 @@
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
-import { acceptFriendRequest, getFriendRequests } from "../lib/api";
+import { acceptFriendRequest, getFriendRequests } from "../lib/api.js";
 import {
   BellIcon,
   ClockIcon,
@@ -10,6 +10,7 @@ import NoNotificationsFound from "../components/NoNotificationsFound.jsx";
 
 const NotificationPage = () => {
   const queryClient = useQueryClient();
+
   const { data: friendRequests, isLoading } = useQuery({
     queryKey: ["friendRequests"],
     queryFn: getFriendRequests,
@@ -35,7 +36,7 @@ const NotificationPage = () => {
 
         {isLoading ? (
           <div className="flex justify-center py-12">
-            <span className="loading loading-spinner loading-lg"></span>
+            <span className="loading loading-spinner loading-lg">Notification Loading...</span>
           </div>
         ) : (
           <>

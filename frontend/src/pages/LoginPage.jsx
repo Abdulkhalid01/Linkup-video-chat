@@ -99,8 +99,7 @@ const LoginPage = () => {
                   >
                     {isPending ? (
                       <>
-                        <span className="loading loading-spinner loading-xs"></span>
-                        Signing in...
+                        <span className="loading loading-spinner loading-xs">Signing in...</span>
                       </>
                     ) : (
                       "Sign In"

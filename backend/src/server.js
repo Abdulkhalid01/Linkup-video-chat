@@ -1,5 +1,5 @@
 import express from "express";
-import dotenv from "dotenv";
+import "dotenv.config";
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
@@ -15,7 +15,7 @@ const PORT = process.env.PORT;
 
 const __dirname = path.resolve();
 
-dotenv.config();
+
 
 app.use(
   cors({
@@ -23,6 +23,7 @@ app.use(
     credentials: true, // allow frontend to send cookies
   })
 );
+
 app.use(express.json());
 app.use(cookieParser());
 
