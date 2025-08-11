@@ -1,5 +1,5 @@
 import express from "express";
-import "dotenv.config";
+import dotenv from "dotenv"
 import cookieParser from "cookie-parser";
 import cors from "cors";
 import path from "path";
@@ -15,7 +15,7 @@ const PORT = process.env.PORT;
 
 const __dirname = path.resolve();
 
-
+dotenv.config();
 
 app.use(
   cors({

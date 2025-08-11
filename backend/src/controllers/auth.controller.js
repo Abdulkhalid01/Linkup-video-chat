@@ -48,7 +48,7 @@ export async function signup(req, res) {
       console.log("Error creating Stream user:", error);
     }
 
-    const token = accessToken.sign(
+    const token = jwt.sign(
       { userId: newUser._id },
       process.env.JWT_SECRET_KEY,
       {
@@ -85,7 +85,7 @@ export async function login(req, res) {
     if (!isPasswordCorrect)
       return res.status(401).json({ message: "Invalid email or password" });
 
-    const token = accessToken.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, {
+    const token = jwt.sign({ userId: user._id }, process.env.JWT_SECRET_KEY, {
       expiresIn: "7d",
     });
 
