@@ -27,14 +27,14 @@ export async function signup(req, res) {
         .json({ message: "Email already exists, please use a diffrent one" });
     }
 
-    const idx = Math.floor(Math.random() * 1000) + 1; // generate a num between 1-100
-    const randomAvatar = `https://api.multiavatar.com/${idx}.png`;
+    const idx = Math.floor(Math.random() * 100) + 1; // generate a num between 1-100
+    const randomAvatar = `https://avatar.iran.liara.run/public/${idx}.png`;
 
     const newUser = await User.create({
       email,
       fullName,
       password,
-      profilePic:randomAvatar,
+      profilePic: randomAvatar,
     });
 
     try {
@@ -92,7 +92,7 @@ export async function login(req, res) {
     res.cookie("accessToken", token, {
       maxAge: 7 * 24 * 60 * 60 * 1000,
       httpOnly: true, // prevent xss attacks
-      sameSite: "strict", // prevent CSRF attacks
+      sameSite: "none", // prevent CSRF attacks
       secure: process.env.NODE_ENV === "production", // prevent HTTP requests
     });
 
@@ -134,12 +134,9 @@ export async function onboard(req, res) {
       });
     }
 
-     if (profilePic) {
-      updateData.profilePic = profilePic;
-    }
 
     const updateUser = await User.findByIdAndUpdate(
-      userId, updateData,
+      userId, 
       {
         ...req.body,
         isOnboarded: true,

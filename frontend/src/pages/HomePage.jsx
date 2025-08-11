@@ -37,23 +37,31 @@ const HomePage = () => {
 
   const { mutate: sendRequestMutation, isPending } = useMutation({
     mutationFn: sendFriendRequest,
-    onSuccess: () => queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] })
-    // onSuccess: (_, userId) => {
-    //   setOutgoingRequestsIds((prev) => new Set(prev).add(userId));
+    // onSuccess: () => queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] })
+    onSuccess: (_, userId) => {
+      setOutgoingRequestsIds((prev) => new Set(prev).add(userId));
 
-    //   queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] });
-    // },
+      queryClient.invalidateQueries({ queryKey: ["outgoingFriendReqs"] });
+    },
   });
 
+  // useEffect(() => {
+  //   const outgoingIds = new Set();
+  //   if (outgoingFriendReqs && outgoingFriendReqs.length > 0) {
+  //     outgoingFriendReqs.forEach((req) => {
+  //       outgoingIds.add(req.recipient._id);
+  //     });
+  //     setOutgoingRequestsIds(outgoingIds);
+  //   }
+  // }, [outgoingFriendReqs]);
+
   useEffect(() => {
-    const outgoingIds = new Set();
-    if (outgoingFriendReqs && outgoingFriendReqs.length > 0) {
-      outgoingFriendReqs.forEach((req) => {
-        outgoingIds.add(req.recipient._id);
-      });
-      setOutgoingRequestsIds(outgoingIds);
-    }
-  }, [outgoingFriendReqs]);
+  if (outgoingFriendReqs?.length) {
+    const ids = new Set(outgoingFriendReqs.map(req => req.recipient._id));
+    setOutgoingRequestsIds(ids);
+  }
+}, [outgoingFriendReqs]);
+
 
   return (
     <div className="p-4 sm:p-6 lg:p-8">
