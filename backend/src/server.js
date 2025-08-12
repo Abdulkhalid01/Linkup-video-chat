@@ -19,7 +19,10 @@ dotenv.config();
 
 app.use(
   cors({
-    origin: "https://linkup-video-chat.onrender.com",
+    origin: [
+      "http://localhost:5173",
+      "https://linkup-video-chat.onrender.com"
+    ],
     credentials: true, // allow frontend to send cookies
   })
 );
