@@ -17,15 +17,10 @@ const __dirname = path.resolve();
 
 dotenv.config();
 
-const allowedOrigins = [
-  "http://localhost:5173",
-  "https://linkup-video-chat.onrender.com" // Production frontend URL
-];
-
 app.use(
   cors({
-    origin: allowedOrigins,
-    credentials: true, // allow cookies
+    origin: "http://localhost:5173",
+    credentials: true, // allow frontend to send cookies
   })
 );
 
