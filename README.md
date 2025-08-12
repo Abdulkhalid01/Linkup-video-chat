@@ -28,10 +28,6 @@
 - Express.js
 - getstream.io
 
-**Other Tools:**
-- WebRTC for video communication
-- Render for deployment
-
 ---
 
 ## 🚀 Getting Started
