@@ -21,7 +21,6 @@ app.use(
   cors({
     origin: [
       "http://localhost:5173",
-      "https://linkup-video-chat.vercel.app"
     ],
     credentials: true, // allow frontend to send cookies
   })
