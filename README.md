@@ -26,7 +26,7 @@
 **Backend:**
 - Node.js
 - Express.js
-- getstream.io
+- Socket.IO
 
 ---
 
